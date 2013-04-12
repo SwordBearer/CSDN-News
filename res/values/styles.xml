@@ -1,0 +1,15 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="android:Theme.Light.NoTitleBar"></style>
+
+    <style name="style_tag_btn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_tag_btn</item>
+        <item name="android:button">@null</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/selector_tag_btn_color</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>

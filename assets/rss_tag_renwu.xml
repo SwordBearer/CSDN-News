@@ -1,0 +1,39 @@
+<rss version="2.0" >
+<channel>
+<!-- <title>CSDN 软件研发频道(资讯)</title>
+<link>http://www.csdn.net</link>
+<description>人物</description>
+<lastBuildDate>Sun, 09 Dec 2012 20:58:40</lastBuildDate> -->
+<item>
+<title>Python之父Guido Van Rossum离开谷歌 一月加盟Dropbox</title>
+<link>
+http://www.csdn.net/article/2012-12-08/2812610-dropbox-guido-van-rossum-python
+</link>
+<description>
+<![CDATA[Dropbox在其官网上发布消息称，Python之父Guido Van Rossum将会从谷歌离职，并在明年1月份加盟Dropbox。他于2005年加入Google。此次加盟，他将会给Dropbox打来很大的帮助，因为Dropbox就是用Python写的。
+]]>
+</description>
+<image><url>http://articles.csdn.net/uploads/allimg/121208/130_120PP110U53.jpg</url></image>
+<author/>
+<pubDate>Sat, 08 Dec 2012 07:00:00</pubDate>
+<guid>http://www.csdn.net/article/2012-12-08/2812610-dropbox-guido-van-rossum-python</guid>
+</item>
+<item>
+<title>人人网转战移动游戏和电商</title>
+<link>http://www.csdn.net/article/2012-09-04/2809521</link>
+<description>
+<![CDATA[
+人人网最新财报显示，公司第二季度净营收4480万美元，净亏损达到2490万美元。为了增加营收，人人计划将重心转向移动游戏和团购。这样的一个人人网，你还会上吗？
+]]>
+</description>
+<image>
+<url>
+http://articles.csdn.net/uploads/allimg/120904/155_0Z4113030T03.jpg
+</url>
+</image>
+<author/>
+<pubDate>Tue, 04 Sep 2012 11:00:00</pubDate>
+<guid>http://www.csdn.net/article/2012-09-04/2809521</guid>
+</item>
+</channel>
+</rss>

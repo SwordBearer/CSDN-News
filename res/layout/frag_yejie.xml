@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/frag_yejie_tag_entrance"
+                style="@style/style_tag_btn"
+                android:checked="true"
+                android:text="总览" />
+
+            <RadioButton
+                android:id="@+id/frag_yejie_tag_product"
+                style="@style/style_tag_btn"
+                android:text="产品" />
+
+            <RadioButton
+                android:id="@+id/frag_yejie_tag_chuangye"
+                style="@style/style_tag_btn"
+                android:text="创业" />
+
+            <RadioButton
+                android:id="@+id/frag_yejie_tag_career"
+                style="@style/style_tag_btn"
+                android:text="职场" />
+
+            <RadioButton
+                android:id="@+id/frag_yejie_tag_renwu"
+                style="@style/style_tag_btn"
+                android:text="人物" />
+
+            <RadioButton
+                android:id="@+id/frag_yejie_tag_design"
+                style="@style/style_tag_btn"
+                android:text="设计" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <xmu.swordbeare.alivelistview.AliveListView
+        android:id="@+id/news_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000" />
+
+</LinearLayout>

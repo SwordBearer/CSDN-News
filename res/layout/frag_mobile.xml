@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/frag_mobile_tag_ios"
+                style="@style/style_tag_btn"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="IOS" />
+
+            <RadioButton
+                android:id="@+id/frag_mobile_tag_android"
+                style="@style/style_tag_btn"
+                android:layout_weight="1"
+                android:text="Android" />
+
+            <RadioButton
+                android:id="@+id/frag_mobile_tag_winphone"
+                style="@style/style_tag_btn"
+                android:layout_weight="1"
+                android:text="WinPhone" />
+
+            <RadioButton
+                android:id="@+id/frag_mobile_tag_rim"
+                style="@style/style_tag_btn"
+                android:layout_weight="1"
+                android:text="RIM" />
+
+            <RadioButton
+                android:id="@+id/frag_mobile_tag_cmdn"
+                style="@style/style_tag_btn"
+                android:layout_weight="1"
+                android:text="CMDN" />
+
+            <RadioButton
+                android:id="@+id/frag_mobile_tag_top30"
+                style="@style/style_tag_btn"
+                android:layout_weight="1"
+                android:text="TOP30" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <ListView
+        android:id="@+id/news_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
