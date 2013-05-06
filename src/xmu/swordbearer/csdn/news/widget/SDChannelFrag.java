@@ -1,4 +1,4 @@
-package xmu.swordbearer.csdn.news.ui.widget;
+package xmu.swordbearer.csdn.news.widget;
 
 import xmu.swordbearer.csdn.R;
 import android.os.Bundle;
@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-public class CloudChannelFrag extends BaseChannelFrag {
+public class SDChannelFrag extends BaseChannelFrag {
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View contentView = inflater.inflate(R.layout.frag_cloud, container,
-				false);
+		View contentView = inflater.inflate(R.layout.frag_sd, container, false);
 		initViews(contentView);
 		return contentView;
 	}

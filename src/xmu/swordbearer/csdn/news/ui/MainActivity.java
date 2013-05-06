@@ -1,14 +1,13 @@
-package xmu.swordbearer.csdn.news.ui.acitvity;
+package xmu.swordbearer.csdn.news.ui;
 
 import xmu.swordbearer.csdn.R;
-import xmu.swordbearer.csdn.news.ui.widget.BaseChannelFrag;
-import xmu.swordbearer.csdn.news.ui.widget.CloudChannelFrag;
-import xmu.swordbearer.csdn.news.ui.widget.MobileChannelFrag;
-import xmu.swordbearer.csdn.news.ui.widget.SDChannelFrag;
-import xmu.swordbearer.csdn.news.ui.widget.YejieChannelFrag;
+import xmu.swordbearer.csdn.news.widget.BaseChannelFrag;
+import xmu.swordbearer.csdn.news.widget.CloudChannelFrag;
+import xmu.swordbearer.csdn.news.widget.MobileChannelFrag;
+import xmu.swordbearer.csdn.news.widget.SDChannelFrag;
+import xmu.swordbearer.csdn.news.widget.YejieChannelFrag;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -64,9 +63,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		default:
 			break;
 		}
-		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-		ft.replace(R.id.main_frag_container, frag);
-		ft.commit();
+		android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+		android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
+		ft.replace(R.id.main_frag_container, frag).commit();
 	}
 
 	public void onClick(View v) {

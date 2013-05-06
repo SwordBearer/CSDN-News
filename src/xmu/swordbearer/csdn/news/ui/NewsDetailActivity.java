@@ -1,4 +1,4 @@
-package xmu.swordbearer.csdn.news.ui.acitvity;
+package xmu.swordbearer.csdn.news.ui;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import xmu.swordbearer.csdn.R;
 import xmu.swordbearer.csdn.news.entity.News;
 import xmu.swordbearer.csdn.news.entity.NewsList;
-import xmu.swordbearer.csdn.news.ui.widget.BaseChannelFrag;
+import xmu.swordbearer.csdn.news.widget.BaseChannelFrag;
 import xmu.swordbearer.smallraccoon.http.HttpGetHelper;
 import xmu.swordbearer.smallraccoon.http.HttpUtils;
 import android.annotation.SuppressLint;

@@ -1,21 +1,24 @@
-package xmu.swordbearer.csdn.news.ui.widget;
+package xmu.swordbearer.csdn.news.widget;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import xmu.swordbeare.alivelistview.AliveListView;
 import xmu.swordbearer.csdn.common.util.NetUtils;
 import xmu.swordbearer.csdn.common.util.UIUtils;
 import xmu.swordbearer.csdn.news.entity.News;
 import xmu.swordbearer.csdn.news.entity.NewsAdapter;
 import xmu.swordbearer.csdn.news.entity.NewsList;
-import xmu.swordbearer.csdn.news.ui.acitvity.NewsDetailActivity;
-import xmu.swordbearer.smallraccoon.cache.CacheUtils;
+import xmu.swordbearer.csdn.news.entity.Page;
+import xmu.swordbearer.csdn.news.ui.NewsDetailActivity;
+import xmu.swordbearer.smallraccoon.cache.CacheUtil;
 import xmu.swordbearer.smallraccoon.http.HttpGetHelper;
 import xmu.swordbearer.smallraccoon.http.HttpUtils;
+import xmu.swordbearer.smallraccoon.widget.LiveListView;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -23,13 +26,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public abstract class BaseChannelFrag extends Fragment implements
-		OnItemClickListener, AliveListView.IAliveListViewListener {
+		OnItemClickListener, LiveListView.OnRefreshListener {
 
 	public static final String EXTRA_NEWSLIST = "extra_newslist";
 	public static final String EXTRA_CUR_POS = "extra_cur_pos";
@@ -87,10 +91,10 @@ public abstract class BaseChannelFrag extends Fragment implements
 	private static final int MSG_UPDATE_DATA = 0X03;
 	private static final int MSG_ERROR_DATA = 0X04;
 
-	protected AliveListView lv;
-	// protected List<News> dataList = new ArrayList<News>();
+	protected LiveListView lv;
 	protected NewsList newsList = new NewsList();
 	protected NewsAdapter newsAdapter;
+	protected List<Fragment> pages = new ArrayList<Fragment>();
 	private Context mContext;
 
 	protected int currentTag;
@@ -104,7 +108,7 @@ public abstract class BaseChannelFrag extends Fragment implements
 		@Override
 		public void handleMessage(Message msg) {
 			if (msg.what == MSG_UPDATE_DATA) {
-				lv.stopRefresh();
+				lv.onRefreshComplete();
 				// progressDialog.dismiss();
 				// newsAdapter.notifyDataSetChanged();
 				newsAdapter = new NewsAdapter(getActivity(), newsList.getNews());
@@ -158,7 +162,7 @@ public abstract class BaseChannelFrag extends Fragment implements
 		if (loadType == LOAD_TYPE_CACHE) {
 			String cacheKey = "news_list_" + currentTag + ".cache";
 			// 如果该缓存文件存在，则加载缓存，否则直接从网络下载
-			if (CacheUtils.isExistCache(mContext, cacheKey)) {
+			if (CacheUtil.isExistCache(mContext, cacheKey)) {
 				getDataFromCache(cacheKey);
 			} else {
 				getDataFromNet();
@@ -170,7 +174,7 @@ public abstract class BaseChannelFrag extends Fragment implements
 	}
 
 	private void getDataFromCache(String cacheKey) {
-		Object cacheObj = CacheUtils.readCache(mContext, cacheKey);
+		Object cacheObj = CacheUtil.readCache(mContext, cacheKey);
 		if (cacheObj == null) {
 			updateDataList(false);
 		} else {
@@ -197,7 +201,7 @@ public abstract class BaseChannelFrag extends Fragment implements
 						newsList = NewsList.fromXML(inStream);
 						updateDataList(true);
 						/* 保存缓存 */
-						CacheUtils.saveCache(mContext, cacheKey, newsList);
+						CacheUtil.saveCache(mContext, cacheKey, newsList);
 					} catch (IOException e) {
 						UIUtils.showToast(mContext, "从网络获取数据失败");
 						getDataFromCache(cacheKey);
@@ -231,5 +235,23 @@ public abstract class BaseChannelFrag extends Fragment implements
 	}
 
 	public void onLoadMore() {
+	}
+
+	private class SlidePageAdapter extends PagerAdapter {
+		private List<Page> pages = new ArrayList<Page>();
+
+		public SlidePageAdapter(List<Page> pages) {
+			this.pages = pages;
+		}
+
+		@Override
+		public int getCount() {
+			return pages.size();
+		}
+
+		@Override
+		public boolean isViewFromObject(View arg0, Object arg1) {
+			return false;
+		}
 	}
 }

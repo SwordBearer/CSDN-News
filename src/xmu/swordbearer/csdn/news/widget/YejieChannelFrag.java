@@ -1,14 +1,13 @@
-package xmu.swordbearer.csdn.news.ui.widget;
+package xmu.swordbearer.csdn.news.widget;
 
-import xmu.swordbeare.alivelistview.AliveListView;
 import xmu.swordbearer.csdn.R;
 import xmu.swordbearer.csdn.common.net.URLs;
 import xmu.swordbearer.csdn.news.entity.NewsAdapter;
+import xmu.swordbearer.smallraccoon.widget.LiveListView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.RadioButton;
 
 public class YejieChannelFrag extends BaseChannelFrag implements
@@ -39,11 +38,12 @@ public class YejieChannelFrag extends BaseChannelFrag implements
 		btnCareer = (RadioButton) v.findViewById(R.id.frag_yejie_tag_career);
 		btnRenwu = (RadioButton) v.findViewById(R.id.frag_yejie_tag_renwu);
 		btnDesign = (RadioButton) v.findViewById(R.id.frag_yejie_tag_design);
-		lv = (AliveListView) v.findViewById(R.id.news_list);
+		lv = (LiveListView) v.findViewById(R.id.news_list);
 
 		newsAdapter = new NewsAdapter(getActivity(), newsList.getNews());
 		lv.setAdapter(newsAdapter);
-		lv.setAliveListViewListener(this);
+		lv.isShowHeader(true);
+		lv.setOnRefreshListener(this);
 
 		btnEnrance.setOnClickListener(this);
 		btnProduct.setOnClickListener(this);

@@ -48,7 +48,7 @@
         </RadioGroup>
     </HorizontalScrollView>
 
-    <xmu.swordbeare.alivelistview.AliveListView
+    <xmu.swordbearer.smallraccoon.widget.LiveListView
         android:id="@+id/news_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

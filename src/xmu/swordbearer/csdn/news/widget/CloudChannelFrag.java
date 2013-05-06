@@ -1,4 +1,4 @@
-package xmu.swordbearer.csdn.news.ui.widget;
+package xmu.swordbearer.csdn.news.widget;
 
 import xmu.swordbearer.csdn.R;
 import android.os.Bundle;
@@ -6,16 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.RadioButton;
 
-public class MobileChannelFrag extends BaseChannelFrag {
-	private RadioButton btnIOS;
-	private RadioButton btnAndroid;
-
+public class CloudChannelFrag extends BaseChannelFrag {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View contentView = inflater.inflate(R.layout.frag_mobile, container,
+		View contentView = inflater.inflate(R.layout.frag_cloud, container,
 				false);
 		initViews(contentView);
 		return contentView;
